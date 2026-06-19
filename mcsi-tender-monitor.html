@@ -1438,8 +1438,8 @@ function setTypeFilter(el, val) {
 }
 
 // ── Sort state ───────────────────────────────────────────────────
-let sortCol = 'days';
-let sortDir = 'asc';
+let sortCol = 'posted';
+let sortDir = 'desc';
 
 function sortTenders(col) {
   if (sortCol === col) {
@@ -1470,9 +1470,9 @@ function initSortHeaders() {
   document.querySelectorAll('.sortable-th').forEach(th => {
     th.addEventListener('click', () => sortTenders(th.dataset.col));
   });
-  // Default: sort by days asc
-  const daysTh = document.querySelector('.sortable-th[data-col="days"]');
-  if (daysTh) daysTh.classList.add('sort-asc');
+  // Default: sort by posted desc (newest first)
+  const postedTh = document.querySelector('.sortable-th[data-col="posted"]');
+  if (postedTh) postedTh.classList.add('sort-desc');
 }
 
 function toggleExpired(btn) {
